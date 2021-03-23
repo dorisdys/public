@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/register.css">
+    <script src="https://kit.fontawesome.com/d33a4677ad.js" crossorigin="anonymous"></script>
+    <title>Register</title>
+</head>
+<body>
+
+    <!--Menue-Bar -->
+<section class="menue">
+               
+    <img id="logo" src = "../images/logo6.png">
+      <p><span>L</span>ets<span>G</span>o</p>
+        <a href="https://touch.facebook.com/" target="_blank"><i id="facebook" class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/accounts/login/" target="_blank"><i id="instagram" class="fab fa-instagram-square"></i></a>
+              <a href="https://twitter.com/LOGIN" target="_blank"><i id="twiter" class="fab fa-twitter"></i></a>
+                  <a href="https://www.youtube.com/?hl=fr&gl=CA" target="_blank"><i id="youtube" class="fab fa-youtube"></i></a>           
+      <div class="dvs">                      
+               <a id="contact" href="../html/index.html">Home</a>
+               <a id="gal" href="../html/destination.html">Destinations</a>                      
+               <a id="register" href="../html/register.html">Register</a> 
+               <a id="contact" href="../html/contact.html">Contact</a>
+               <a href="../html/about.html">About</a>
+      </div>
+</section >
+<!--End of Menue-Bar -->
+
+<!--Sign Up Form-->
+<div class="bgimg">
+  <form >
+        
+    <h1>Register</h1>
+    
+    <fieldset>
+      <legend><span class="number">1</span>Your basic info</legend>
+      <label for="fname">First Name:</label>
+      <input type="text" id="fname" name="user_fname">
+
+      <label for="lname">Last Name:</label>
+      <input type="text" id="lname" name="user_lname">
+      
+      <label for="phone">Phone Number:</label>
+      <input type="number" id="phone" name="user_phone">
+
+      <label for="mail">Email:</label>
+      <input type="email" id="mail" name="user_email">
+      
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="user_address">
+      
+      <label for="city">City:</label>
+      <input type="text" id="city" name="user_city">
+       
+      
+
+    </fieldset>
+    
+    <fieldset>
+      <legend><span class="number">2</span>Packages</legend>
+      <label for="startdate">Start Date:</label>
+      <input type="date" id="startdate" name="user_startdate">
+
+      <label for="enddate">End Date:</label>
+      <input type="date" id="enddate" name="user_enddate">
+      <div>
+        <input type="radio" id="morocco" name="package" value="morocco"
+               checked>
+        <label for="morocco">Morocco</label>
+      </div>
+      
+      <div>
+        <input type="radio" id="egypt" name="package" value="egypt">
+        <label for="egypt">Egypt</label>
+      </div>
+      
+      <div>
+        <input type="radio" id="jamaica" name="package" value="jamaica">
+        <label for="jamaica">Jamaica</label>
+      </div>
+
+      <div>
+        <input type="radio" id="mexico" name="package" value="mexico">
+        <label for="mexico">Mexico</label>
+      </div>
+      <br>
+      
+       
+      <button  id="cost" type="button" >Your Total Cost</button>
+      <label  id = "totalCost"></label>
+      <br>
+    
+      
+    </fieldset>
+    <fieldset>
+      <legend><span class="number">3</span>Your Agent</legend>
+      <input type="radio" id="richard" value="richard" name="agent"><label class="light" for="richard" checked >Richard Lary</label><br>
+      <input type="radio" id="scote" value="scote" name="agent"><label class="light" for="scote" >Scote Yu</label><br>
+     
+    </fieldset>
+    
+    
+    <button id="button1" value ="submit" type="submit">Submit</button>
+    
+  </form>
+</div>
+<script>
+    document.getElementById('cost').onclick = function() {
+        var x = document.getElementById("startdate").value;
+        var y = document.getElementById("enddate").value;
+    
+        var a = new Date(x);
+        var b = new Date(y);
+        var z = b.getTime() - a.getTime();
+        var days = z/(1000*3600*24);
+        
+        var radios = document.getElementsByName('package');
+        for (var radio of radios) {
+          if (radio.checked) {
+              choiceSelected = radio.value;
+              if(choiceSelected = "Morocco"){
+                  var totalcost = 2000*days;
+              }
+               else if(choiceSelected = "Egypt"){
+                  totalcost = 2500*days;
+               }
+               else if(choiceSelected = "Jamaica"){
+                  totalcost = 2000*days;
+               }
+               else{
+                  totalcost = 1500*days;
+               }
+              document.getElementById("totalCost").innerHTML=totalcost;
+          }
+        }
+      }
+
+</script>
+</body>
+</html>
